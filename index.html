@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first API call</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="bg" style="display: none;">
+        <div id="search-page">
+            <h1>Weather App</h1>
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <input type="text" placeholder="Search here... City" class="input active" id="test">
+                    <div class="btn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-2">
+        <div id="weather-page">
+            <button id="back"><i class="fas fa-backward"></i> Back</button>
+            <div class="head">
+                <div>New York</div>
+                <div>6:11pm</div>
+            </div>
+
+            <div class="weather-page-wrapper">
+                <section class="left">
+                    <div id="top">
+                        <ul>
+                            <li id="currently">CURRENTLY</li>
+                            <li id="temperature">32F</li>
+                            <li id="climate">Light Rain</li>
+                            <li id="wind">Wind: 10miles</li>
+                            <li id="humidy">Humidy: 30%</li>
+                        </ul>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div id="bottom">
+                        <ul>
+                            <li id="forecast">forecast</li>
+                            <li id="temperature">32F</li>
+                            <li id="climate">Light Rain</li>
+                            <li id="wind">Wind: 10miles</li>
+                            <li id="humidy">Humidy: 30%</li>
+                        </ul>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                </section>
+                <section class="right">
+                    <div id="part-1">
+                        <div>
+                            <ul>
+                                <li id="day">Tuesday</li>
+                                <li id="right-temp"> 40F </li>
+                                <li id="right-climate">Cloudy</li>
+                            </ul>
+                        </div>
+                        <div id="icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                    <div id="part-2">
+                        <div>
+                            <ul>
+                                <li id="day">Tuesday</li>
+                                <li id="right-temp"> 40F </li>
+                                <li id="right-climate">Cloudy</li>
+                            </ul>
+                        </div>
+                        <div id="icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                    <div id="part-3">
+                        <div>
+                            <ul>
+                                <li id="day">Tuesday</li>
+                                <li id="right-temp"> 40F </li>
+                                <li id="right-climate">Cloudy</li>
+                            </ul>
+                        </div>
+                        <div id="icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                    <div id="part-4">
+                        <div>
+                            <ul>
+                                <li id="day">Tuesday</li>
+                                <li id="right-temp"> 40F </li>
+                                <li id="right-climate">Cloudy</li>
+                            </ul>
+                        </div>
+                        <div id="icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="app.js"></script>
+</body>
+
+</html>

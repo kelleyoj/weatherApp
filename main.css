@@ -1,0 +1,231 @@
+body{
+    margin: 0;
+    padding: 0;
+  }
+
+.bg{
+    background-image: url('https://images.unsplash.com/photo-1443694910004-3567042689f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+
+.bg-2{
+  background-image: url('https://images.unsplash.com/photo-1514527893004-f77d3d773644?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1101&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  font-family: 'Roboto', sans-serif;
+}
+
+.search-wrapper h1{
+  font-family: 'Major Mono Display', monospace;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  font-weight: 700;
+  font-size: 4em;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+  .search-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .search-box {
+    width: 450px;
+    height: 100px;
+    position: relative;
+  }
+  
+  .input {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    box-sizing: border-box;
+    width: 0px;
+    height: 63px;
+    padding: 0 20px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 50px;
+    color: white;
+    border: 3px solid dark darkblue;
+    background-color: rgba(0,0,0,0.6);
+    transition: all 0.8s ease; 
+  }
+  
+  .btn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: darkblue;
+    border-radius: 50%;
+    right: 60px;
+    top: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 80px;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.8s ease;
+  }
+  
+  .input.active {
+    width: 350px;
+    right: 100px;
+  }
+  
+  .btn.animate {
+    transform: rotate(-360deg);
+    right: 100px;
+  } 
+
+  .isEmpty{
+    border-color: red;
+  }
+
+
+  /* weather page style */
+  #back{
+   width: 15%;
+   padding-top: .5%;
+   font-size: 1.2em;
+   padding-bottom: .5%;
+   position: absolute;
+   left: 10%;
+   top: 4%;
+   font-family: 'Roboto', sans-serif;
+   background-color: white;
+   opacity: 0.6;
+   border: none;
+   color: black;
+   border-radius: 10px;
+  }
+
+  .head{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 81%;
+  }
+  .head div{
+    display: inline-block;
+    color: white;
+  }
+.head div:last-child{
+  padding-left: 80%;
+}
+  
+  .weather-page-wrapper{
+    color: white;
+    display: grid;
+    width: 80%;
+    position: absolute;
+    top: 24%;
+    left: 10%;
+    grid-template-columns: 1fr .7fr;
+    grid-column-gap: 5px;
+  }
+
+  .left{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 5px;
+  }
+
+  .left #top{
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    background-color: rgba(0,0,0,0.3);
+    padding-top: 5%;
+  }
+  .left #bottom{
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    background-color: rgba(0,0,0,0.3);
+    padding-top: 5%;
+  }
+
+  #top .fa-cloud{
+  text-align: center;
+  margin-top: 28%;
+  font-size: 5em;
+  }
+
+  #bottom .fa-cloud{  
+    text-align: center;
+    margin-top: 30%;
+    font-size: 5em;
+  }
+
+  .right{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+  }
+
+  #icon{
+    padding-top: 19%;
+    font-size: 3em;
+  }
+  #day{
+    text-transform: uppercase;
+    font-size: .9em;
+  }
+  #right-temp{
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  #right-climate{
+    font-size: .9em;
+  }
+
+  #part-1 ,#part-2 ,#part-3 ,#part-4 {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(0,0,0,0.3);
+  }
+  
+  ul li{
+    list-style: none;
+    padding: 1.5%;
+    
+  }
+  
+  #currently,forecast{
+    font-size: 1em;
+  }
+  #temperature{
+    font-size: 2em;
+    font-weight: bold;
+  }
+  #climate{
+    font-size: 1em;
+  }
+
+  #wind{
+    padding-top: 10%;
+    font-size: .9em
+  }
+  #humidy{
+    font-size: .9em;
+  }
