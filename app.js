@@ -28,7 +28,7 @@ $(document).ready(function () {
         $.getJSON(url, {
             format: 'json'
         }).done(function (data) {
-            inParse(data, typeOfCall);
+            stylePage(dataInParse(data, typeOfCall), typeOfCall);
             // for testing
             getIcon(data, typeOfCall);
         }).fail(function () {
@@ -37,43 +37,61 @@ $(document).ready(function () {
     }
 
     // needs work
-    function inParse(data, typeOfCall) {
-        var parsedData = {};
+    function dataInParse(data, typeOfCall) {
+        var currentParsedData = {};
+        var formatedParseData = [];
+
         if (typeOfCall === 'current') {
-            parsedData.name = data.name;
-            parsedData.weather = data.weather[0].description;
-            parsedData.wind = data.wind.speed;
-            parsedData.humidy = data.main.humidity
-            console.log(parsedData);
-            return parsedData;
+            currentParsedData.name = data.name;
+            currentParsedData.temp = data.main.temp;
+            currentParsedData.weather = data.weather[0].description;
+            currentParsedData.wind = data.wind.speed;
+            currentParsedData.humidy = data.main.humidity
+            console.log(currentParsedData);
+            return currentParsedData;
         } else {
-            var formatedData = formatForecastData(data);
-            // dayOfWeek(formatedData);
+            for (var i = 7; i <= 31; i += 8) {
+                formatedParseData.push(
+                    {
+                        day: dayOfWeek(parseDate(data.list[i].dt_txt)),
+                        temp: data.list[i].main.temp,
+                        weather: data.list[i].weather[0].description,
+                        wind: data.list[i].wind.speed,
+                        humidity: data.list[i].main.humidity
+                    }
+                );
+            }
+            // testing
+            console.log(formatedParseData);
+            console.log(data.list[0].weather[0].description);
+            return formatedParseData;
         }
     }
 
-    function formatForecastData(data) {
-        var formatedData = [];
+    function stylePage(arr, typeOfCall) {
+        $('#city-name').text(arr.name);
+        if (typeOfCall === 'current') {
+            $('#temperature').text(arr.temp);
+            $('#climate').text(arr.weather);
+            $('#wind').text('Wind: ' + arr.wind + ' mph');
+            $('#humidy').text('Humidity: ' + arr.humidy + '%');
+        } else {
+            $('#forecastTemp').text(arr[0].temp);
+            $('#forecast-climate').text(arr[0].weather);
+            $('#forecast-Wind').text('Wind: ' + arr[0].wind + ' mph');
+            $('#forecast-Humidy').text('Humidity: ' + arr[0].humidity + '%');
 
-        for (var i = 7; i <= 31; i += 8) {
-            formatedData.push(
-                {
-                    day: dayOfWeek(getDate(data.list[i].dt_txt)),
-                    temp: data.list[i].main.temp,
-                    weather: data.list[i].weather[0].description,
-                    wind: data.list[i].wind.speed,
-                    humidity: data.list[i].main.humidity
-                }
-            );
+            for (var i = 0; i <=3; i++) {
+                $('#day'+i).text(arr[i].day);
+                $('#day'+i+'-Temp').text(arr[i].temp);
+                $('#day-'+i+'-Climate').text(arr[i].weather);
+            }
         }
-        // testing
-        console.log(formatedData);
-        console.log(data.list[0].weather[0].description);
-        return formatedData;
+
     }
 
     // parse the date
-    function getDate(date) {
+    function parseDate(date) {
         var temp = '';
         for (var i = 0; i < date.length; i++) {
             temp += date.charAt(i);
