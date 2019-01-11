@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="bg" style="display: none;">
+    <div class="bg " id="first-page" >
         <div id="search-page">
             <h1>Weather App</h1>
             <div class="search-wrapper">
@@ -30,11 +30,11 @@
         </div>
     </div>
 
-    <div class="bg-2">
+    <div class="bg-2 isVisible" id="second-page" >
         <div id="weather-page">
             <button id="back"><i class="fas fa-backward"></i> Back</button>
             <div class="head">
-                <div>New York</div>
+                <div id="city-name">New York</div>
                 <div>6:11pm</div>
             </div>
 
@@ -48,7 +48,7 @@
                             <li id="wind">Wind: 10miles</li>
                             <li id="humidy">Humidy: 30%</li>
                         </ul>
-                        <i class="fas fa-cloud"></i>
+                        <img src="" alt=""  id="current-icon">
                     </div>
                     <div id="bottom">
                         <ul>
@@ -58,7 +58,7 @@
                             <li id="wind">Wind: 10miles</li>
                             <li id="humidy">Humidy: 30%</li>
                         </ul>
-                        <i class="fas fa-cloud"></i>
+                        <img src="" alt="" id="forecast-icon">
                     </div>
                 </section>
                 <section class="right">
