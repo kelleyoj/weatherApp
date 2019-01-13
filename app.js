@@ -8,25 +8,22 @@ $(document).ready(function () {
 
     // needs work
 
-    // (function () {
+    $('.btn').click(function () {
+        var input = $('input:text').val();
+        var key = 'APPID=01a0b9d96cfb7addf958df0aa59a1d37'
+        var currentUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=' + input + ',us&mode=json&' + key;
+        var forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast?zip=' + input + ',us&mode=json&' + key
 
-    //     var input = '10469';
-    //     // "$('input:text').val();"
-    //     var key = 'APPID=01a0b9d96cfb7addf958df0aa59a1d37'
-    //     var currentUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=' + input + ',us&mode=json&' + key;
-    //     var forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast?zip=' + input + ',us&mode=json&' + key
+        if (input === '') {
+            $('.input').toggleClass('isEmpty');
+        } else {
+            $('#first-page').toggleClass('isVisible');
+            $('#second-page').toggleClass('isVisible');
+            getData(currentUrl, 'current');
+            getData(forecastUrl, 'forecast');
+        }
 
-    //     if (input === '') {
-    //         $('.input').toggleClass('isEmpty');
-    //     } else {
-    //         $('#first-page').toggleClass('isVisible');
-    //         $('#second-page').toggleClass('isVisible');
-    //         getData(currentUrl, 'current');
-    //         getData(forecastUrl, 'forecast');
-    //     }
-
-
-    // })();
+    });
 
     // needs work
     function getData(url, typeOfCall) {
@@ -36,7 +33,6 @@ $(document).ready(function () {
             console.log("HHH");
             console.log(data);
             stylePage(dataInParse(data, typeOfCall), typeOfCall);
-
         }).fail(function () {
             alert("Ajax call failed");
         });
