@@ -120,7 +120,7 @@ body{
   #back{
    width: 15%;
    padding-top: .5%;
-   font-size: 1.2em;
+   font-size: 1em;
    padding-bottom: .5%;
    position: absolute;
    left: 10%;
@@ -142,7 +142,7 @@ body{
     grid-template-columns: 1fr 1fr;
     position: absolute;
     top: 17%;
-    left: 10%;
+    left: 8%;
     width: 81%;
   }
   .head div{
@@ -150,7 +150,7 @@ body{
     color: white;
   }
 .head div:last-child{
-  padding-left: 80%;
+  padding-left: 73%;
 }
   .weather-page-wrapper{
     color: white;
@@ -179,9 +179,14 @@ body{
   .left ul{
     padding: 1em;
   }
-  .left div{
-    padding-top: 3.6em;
+  .left .icon{
+    padding-top: 3em;
     padding-right: 1em;
+    padding-left: .3em;
+  }
+  .right .icon{
+    padding-right: 2em;
+    padding-top: 2em;
   }
   .left #bottom{
     display: grid;
@@ -194,12 +199,13 @@ body{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-row-gap: 5px;
+  } 
+  .right ul li{
+    line-height: 1.1em;
   }
-  .right 
 
   .right ul{
-    padding: 1.4em;
-    line-height: 1.1em;
+     padding: 1em .8em 1em .5em;
   }
 
   .right ul li:first-child,.right ul li:last-child{
