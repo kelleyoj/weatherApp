@@ -152,14 +152,13 @@ body{
 .head div:last-child{
   padding-left: 80%;
 }
-  
   .weather-page-wrapper{
     color: white;
     display: grid;
     width: 80%;
     position: absolute;
     top: 21%;
-    left: 10%;
+    left: 4%;
     grid-template-columns: 1fr .7fr;
     grid-column-gap: 5px;
   }
@@ -175,38 +174,48 @@ body{
     display: grid;
     grid-template-columns: 1fr .5fr;
     background-color: rgba(0,0,0,0.3);
-    padding-top: 5%;
+    padding-top: 1em;
+  }
+  .left ul{
+    padding: 1em;
+  }
+  .left div{
+    padding-top: 3.6em;
+    padding-right: 1em;
   }
   .left #bottom{
     display: grid;
     grid-template-columns: 1fr .5fr;
     background-color: rgba(0,0,0,0.3);
-    padding-top: 5%;
+    padding-top: 1em;
   }
-
-  #top .fa-cloud{
-  text-align: center;
-  margin-top: 28%;
-  font-size: 5em;
-  }
-
-  #bottom .fa-cloud{  
-    text-align: center;
-    margin-top: 30%;
-    font-size: 5em;
-  }
-
   .right{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-row-gap: 5px;
   }
+  .right 
 
+  .right ul{
+    padding: 1.4em;
+    line-height: 1.1em;
+  }
+
+  .right ul li:first-child,.right ul li:last-child{
+    font-size: .8em;
+  }
+
+  .right ul li:nth-child(even){
+    font-size: .9em;
+    font-weight: bold;
+  }
+  
   #icon{
     padding-top: 19%;
     font-size: 3em;
   }
+  
   #day{
     text-transform: uppercase;
     font-size: .9em;
@@ -226,31 +235,48 @@ body{
     background-color: rgba(0,0,0,0.3);
   }
   
-  ul li{
+  .left ul li{
     list-style: none;
-    padding: 1.5%;
-    
+    padding: 2%;
   }
-  
-  #currently,forecast{
-    font-size: 1em;
-  }
-  #temperature{
-    font-size: 2em;
-    font-weight: bold;
-  }
-  #climate{
-    font-size: 1em;
+  .right ul li{
+    list-style: none;
   }
 
-  #wind{
-    padding-top: 10%;
-    font-size: .9em
+
+  #currently,#forecast{
+    font-size: .8em;
   }
-  #humidy{
-    font-size: .9em;
+  #temperature,#forecastTemp{
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  #climate,#forecast-climate{
+    font-size: .8em;
+  }
+
+  #wind,#forecast-Wind{
+    padding-top: 10%;
+    font-size: .7em
+  }
+  #humidy,#forecast-Humidy{
+    font-size: .7em;
   }
 
   .isVisible{
     display: none;
   }
+
+
+
+  #current-icon,#forecast-icon{
+   width: 4em;
+  }
+  #forecast-icon{
+   width: 4em;
+  }
+
+  #icon1,#icon2,#icon3,#icon4{
+    width: 3em;
+  }
+ 

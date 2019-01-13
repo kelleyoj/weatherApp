@@ -16,7 +16,8 @@
 </head>
 
 <body>
-    <div class="bg " id="first-page" >
+    <!-- remove isVisivle -->
+    <div class="bg isVisible " id="first-page">
         <div id="search-page">
             <h1>Weather App</h1>
             <div class="search-wrapper">
@@ -29,13 +30,13 @@
             </div>
         </div>
     </div>
-
-    <div class="bg-2 isVisible" id="second-page" >
+<!-- [ut isVsible bakc] -->
+    <div class="bg-2 " id="second-page">
         <div id="weather-page">
             <button id="back"><i class="fas fa-backward"></i> Back</button>
             <div class="head">
                 <div id="city-name">New York</div>
-                <div>6:11pm</div>
+                <div id="time">6:11pm</div>
             </div>
 
             <div class="weather-page-wrapper">
@@ -48,7 +49,10 @@
                             <li id="wind">Wind: 10miles</li>
                             <li id="humidy">Humidy: 30%</li>
                         </ul>
-                        <img src="" alt=""  id="current-icon">
+                        <div class="icon">
+                            <img src="icon/cloudy.png" alt="" id="current-icon">
+                        </div>
+
                     </div>
                     <div id="bottom">
                         <ul>
@@ -58,48 +62,37 @@
                             <li id="forecast-Wind">Wind: 10miles</li>
                             <li id="forecast-Humidy">Humidy: 30%</li>
                         </ul>
-                        <img src="" alt="" id="forecast-icon">
+                        <img src="icon/cloudy.png" alt="" id="forecast-icon">
                     </div>
                 </section>
                 <section class="right">
                     <div id="part-1">
                         <div>
                             <ul>
-                                <li id="day0">Tuesday</li>
+                                <li id="day1">Tuesday</li>
                                 <!-- right temp first id -->
-                                <li id="day0-Temp"> 40F </li>
-                                <li id="day-0-Climate">Cloudy</li>
+                                <li id="day1-Temp"> 40F</li>
+                                <li id="day-1-Climate">Cloudy</li>
                             </ul>
                         </div>
-                        <div id="icon">
-                            <i class="fas fa-cloud"></i>
+                        <!-- icon class and fas fa-cloud -->
+                        <div class="icon">
+                            <img src="icon/cloudy.png" alt="" id="icon1">
                         </div>
                     </div>
                     <div id="part-2">
                         <div>
                             <ul>
-                                <li id="day1">Tuesday</li>
-                                <li id="day1-Temp"> 40F </li>
-                                <li id="day-1Climate">Cloudy</li>
+                                <li id="day2">Tuesday</li>
+                                <li id="day2-Temp"> 40F </li>
+                                <li id="day-2-Climate">Cloudy</li>
                             </ul>
                         </div>
-                        <div id="icon">
-                            <i class="fas fa-cloud"></i>
+                        <div class="icon">
+                            <img src="icon/cloudy.png" alt="" id="icon2">
                         </div>
                     </div>
                     <div id="part-3">
-                        <div>
-                            <ul>
-                                <li id="day2">Tuesday</li>
-                                <li id="day2-Temp"> 40F </li>
-                                <li id="day-3Climate">Cloudy</li>
-                            </ul>
-                        </div>
-                        <div id="icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                    </div>
-                    <div id="part-4">
                         <div>
                             <ul>
                                 <li id="day3">Tuesday</li>
@@ -107,8 +100,20 @@
                                 <li id="day-3-Climate">Cloudy</li>
                             </ul>
                         </div>
-                        <div id="icon">
-                            <i class="fas fa-cloud"></i>
+                        <div class="icon">
+                            <img src="icon/cloudy.png" alt="" id="icon3">
+                        </div>
+                    </div>
+                    <div id="part-4">
+                        <div>
+                            <ul>
+                                <li id="day4">Tuesday</li>
+                                <li id="day4-Temp"> 40F </li>
+                                <li id="day-4-Climate">Cloudy</li>
+                            </ul>
+                        </div>
+                        <div class="icon">
+                            <img src="icon/cloudy.png" alt="" id="icon4">
                         </div>
                     </div>
                 </section>
