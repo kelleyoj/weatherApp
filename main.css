@@ -4,7 +4,7 @@ body{
   }
 
 .bg{
-    background-image: url('https://images.unsplash.com/photo-1443694910004-3567042689f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80');
+    background-image: url('icon/bg-1.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -13,7 +13,7 @@ body{
 }
 
 .bg-2{
-  background-image: url('https://images.unsplash.com/photo-1514527893004-f77d3d773644?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1101&q=80');
+  background-image: url('icon/bg-2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;

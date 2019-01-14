@@ -1,48 +1,53 @@
 $(document).ready(function () {
     var isNight = true;
-    // needs work
+    var isDisplay=false;
+    
     $('#back').click(function () {
         $('#first-page').toggleClass('isVisible');
         $('#second-page').toggleClass('isVisible');
     });
-
-    // needs work
-
     $('.btn').click(function () {
         var input = $('input:text').val();
         var key = 'APPID=01a0b9d96cfb7addf958df0aa59a1d37'
-        var currentUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + input + ',us&mode=json&' + key;
-        var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + input + ',us&mode=json&' + key
+        var currentUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=' + input + ',us&mode=json&' + key;
+        var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?zip=' + input + ',us&mode=json&' + key
 
         if (input === '') {
             $('.input').toggleClass('isEmpty');
         } else {
-            $('#first-page').toggleClass('isVisible');
-            $('#second-page').toggleClass('isVisible');
             getData(currentUrl, 'current');
             getData(forecastUrl, 'forecast');
+            setTimeout(function(){
+                if(isDisplay===true){
+                    $('#first-page').toggleClass('isVisible');
+                    $('#second-page').toggleClass('isVisible');
+                }else {
+                    alert("Please Try Again, The Zip Code Could Be Found");
+                }
+            },0600);
         }
-
     });
-
-    // needs work
+    $('input:text').keypress(function(e){
+        if(e.which == 13){
+            $('.btn').click();
+        }
+    });
+    
     function getData(url, typeOfCall) {
         $.getJSON(url, {
             format: 'json'
         }).done(function (data) {
-            console.log("HHH");
-            console.log(data);
             stylePage(dataInParse(data, typeOfCall), typeOfCall);
+            isDisplay = true;
         }).fail(function () {
-            alert("Ajax call failed");
+            isDisplay = false;
         });
     }
 
-    // needs work
     function dataInParse(data, typeOfCall) {
         var currentParsedData = {};
         var formatedParseData = [];
-        console.log('DATA ' + data);
+
         if (typeOfCall === 'current') {
             currentParsedData.name = data.name;
             currentParsedData.time = data.dt;
@@ -52,9 +57,7 @@ $(document).ready(function () {
             currentParsedData.weather = data.weather[0].description;
             currentParsedData.wind = data.wind.speed;
             currentParsedData.humidy = data.main.humidity
-            // testing
-            console.log('FROM DATAPARSE ' + currentParsedData.sunset + " " + currentParsedData.time + " " + currentParsedData.sunrise);
-            console.log(currentParsedData);
+        
             // displaying the correct icon
             getIcon(currentParsedData, typeOfCall);
             return currentParsedData;
@@ -70,9 +73,6 @@ $(document).ready(function () {
                     }
                 );
             }
-            //testing
-            console.log(formatedParseData);
-            console.log(data.list[0].weather[0].description);
             getIcon(formatedParseData, typeOfCall);
             return formatedParseData;
         }
@@ -84,14 +84,11 @@ $(document).ready(function () {
     }
 
     function getCurrentTime() {
-        // testing
         var day = new Date();
         var hours = day.getHours();
         var min = day.getMinutes();
         if (min <= 9) {
             min = '0' + min;
-            // testing 
-            console.log('MIN '+min);
         }
         var time = '';
         if (hours > 12) {
@@ -105,7 +102,6 @@ $(document).ready(function () {
         } else {
             time = hours + ':' + min + 'am';
         }
-        console.log(time);
         return time;
     }
 
@@ -175,10 +171,6 @@ $(document).ready(function () {
                 day = "BEAUTIFUL"
                 break;
         };
-        // test
-        console.log(temp);
-        console.log(date);
-        console.log(day);
         return day;
     }
 
@@ -186,14 +178,12 @@ $(document).ready(function () {
     function getIcon(data, typeOfCall) {
         var count =1;
         if (typeOfCall === 'current') {
-            console.log("GETicon " + data.time);
             switchIcon(data.weather, '#current-icon');
             if (data.time > data.sunset) {
                 isNight = true;
             } else if (data.time < data.sunrise) {
                 isNight = false;
             }
-            console.log("isNIGHT " + isNight);
         } else {
             switchIcon(data[7].weather, '#forecast-icon');
             isNight = false;
@@ -202,12 +192,9 @@ $(document).ready(function () {
                 count++;
             }
         }
-        console.log("GETicon " + data.time);
     }
 
     function switchIcon(weather, icon) {
-        // testing
-        console.log('SWITCHICON ' + weather, icon);
         switch (weather) {
             case "clear sky":
             case "mist":
