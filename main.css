@@ -386,7 +386,8 @@ body{
         left: 27%;
     }
     .search-wrapper{
-     left: 57em;
+     left: 47em;
+     top: 23em;
     }
 
     /* Weather page responsive */
