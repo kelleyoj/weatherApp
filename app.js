@@ -11,8 +11,8 @@ $(document).ready(function () {
     $('.btn').click(function () {
         var input = $('input:text').val();
         var key = 'APPID=01a0b9d96cfb7addf958df0aa59a1d37'
-        var currentUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + input + ',us&mode=json&' + key;
-        var forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + input + ',us&mode=json&' + key
+        var currentUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + input + ',us&mode=json&' + key;
+        var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + input + ',us&mode=json&' + key
 
         if (input === '') {
             $('.input').toggleClass('isEmpty');
