@@ -25,10 +25,10 @@ body{
 #search-page h1{
   font-family: 'Major Mono Display', monospace;
   position: absolute;
-  top: 20%;
-  left: 30%;
+  top: 25%;
+  left: 15%;
   font-weight: 700;
-  font-size: 4em;
+  font-size: 2em;
 }
 
 .main{
@@ -96,7 +96,7 @@ body{
     cursor: pointer;
     text-align: center;
     line-height: 80px;
-    font-size: 20px;
+    font-size: 1.2em;
     color: #fff;
     transition: all 0.8s ease;
   }
