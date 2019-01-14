@@ -11,8 +11,8 @@ $(document).ready(function () {
     $('.btn').click(function () {
         var input = $('input:text').val();
         var key = 'APPID=01a0b9d96cfb7addf958df0aa59a1d37'
-        var currentUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=' + input + ',us&mode=json&' + key;
-        var forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast?zip=' + input + ',us&mode=json&' + key
+        var currentUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + input + ',us&mode=json&' + key;
+        var forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + input + ',us&mode=json&' + key
 
         if (input === '') {
             $('.input').toggleClass('isEmpty');
@@ -59,7 +59,7 @@ $(document).ready(function () {
             getIcon(currentParsedData, typeOfCall);
             return currentParsedData;
         } else {
-            for (var i = 1; i <= 38; i++) {
+            for (var i = 0; i <= data.list.length-1; i++) {
                 formatedParseData.push(
                     {
                         day: dayOfWeek(parseDate(data.list[i].dt_txt)),
@@ -90,6 +90,8 @@ $(document).ready(function () {
         var min = day.getMinutes();
         if (min <= 9) {
             min = '0' + min;
+            // testing 
+            console.log('MIN '+min);
         }
         var time = '';
         if (hours > 12) {
@@ -110,21 +112,23 @@ $(document).ready(function () {
     function stylePage(arr, typeOfCall) {
         $('#city-name').text(arr.name);
         $('#time').text(getCurrentTime());
+        var count = 1;
         if (typeOfCall === 'current') {
             $('#temperature').html(arr.temp + ' <span>&#176</span>' + 'F');
             $('#climate').text(arr.weather);
             $('#wind').text('Wind: ' + arr.wind + ' mph');
             $('#humidy').text('Humidity: ' + arr.humidy + '%');
         } else {
-            $('#forecastTemp').html(arr[0].temp + ' <span>&#176</span>' + 'F');
-            $('#forecast-climate').text(arr[0].weather);
-            $('#forecast-Wind').text('Wind: ' + arr[0].wind + ' mph');
-            $('#forecast-Humidy').text('Humidity: ' + arr[0].humidity + '%');
+            $('#forecastTemp').html(arr[7].temp + ' <span>&#176</span>' + 'F');
+            $('#forecast-climate').text(arr[7].weather);
+            $('#forecast-Wind').text('Wind: ' + arr[7].wind + ' mph');
+            $('#forecast-Humidy').text('Humidity: ' + arr[7].humidity + '%');
 
-            for (var i = 0; i <= 3; i++) {
-                $('#day' + i).text(arr[i].day);
-                $('#day' + i + '-Temp').html(arr[i].temp + ' <span>&#176</span>' + 'F');
-                $('#day-' + i + '-Climate').text(arr[i].weather);
+            for (var i = 14; i <= arr.length-1; i+=7) {
+                $('#day' + count).text(arr[i].day);
+                $('#day' + count + '-Temp').html(arr[i].temp + ' <span>&#176</span>' + 'F');
+                $('#day-' + count + '-Climate').text(arr[i].weather);
+                count++;
             }
         }
     }
@@ -180,20 +184,22 @@ $(document).ready(function () {
 
     // Link correct icon to weather
     function getIcon(data, typeOfCall) {
+        var count =1;
         if (typeOfCall === 'current') {
             console.log("GETicon " + data.time);
             switchIcon(data.weather, '#current-icon');
-            // if (data.time > data.sunset) {
-            //     isNight = true;
-            // } else if (data.time < data.sunrise) {
-            //     isNight = false;
-            // }
-            // console.log("isNIGHT " + isNight);
+            if (data.time > data.sunset) {
+                isNight = true;
+            } else if (data.time < data.sunrise) {
+                isNight = false;
+            }
+            console.log("isNIGHT " + isNight);
         } else {
-            switchIcon(data[0].weather, '#forecast-icon');
-            // isNight = false;
-            for (var i = 0; i <= 3; i++) {
-                switchIcon(data[i].weather, '#icon' + i);
+            switchIcon(data[7].weather, '#forecast-icon');
+            isNight = false;
+            for (var i = 14; i <= data.length-1; i+=7) {
+                switchIcon(data[i].weather, '#icon' + count);
+                count++;
             }
         }
         console.log("GETicon " + data.time);
@@ -205,11 +211,11 @@ $(document).ready(function () {
         switch (weather) {
             case "clear sky":
             case "mist":
-                // if (isNight == true) {
-                //     $(icon).attr('src', 'icon/moon.png');
-                // } else {
-                //     $(icon).attr('src', 'icon/sunny.png');
-                // }
+                if (isNight == true) {
+                    $(icon).attr('src', 'icon/moon.png');
+                } else {
+                    $(icon).attr('src', 'icon/sunny.png');
+                }
                 break;
             case "rain":
             case "shower rain":
