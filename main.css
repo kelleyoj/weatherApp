@@ -320,7 +320,7 @@ body{
     .input{
       height: 4rem;
     }
-
+  
     /* Weather display page */
     #currently, #forecast {
       font-size: 1.4em;
@@ -382,6 +382,7 @@ body{
 
   @media only screen and (min-width: 1200px){
     #search-page h1 {
+      top: 2.4em;
         font-size: 5em;
         left: 27%;
     }
@@ -389,8 +390,23 @@ body{
      left: 47em;
      top: 23em;
     }
+    .input {
+      height: 4rem;
+    }
+    .input.active {
+    width: 28em;
+    height: 4em;
+    }
+    .btn {
+    width: 5em;
+    height: 5em;
+    }
+    .fa-search:before {
+    top: .2em;
+    right: .3em;
+    }
 
-    /* Weather page responsive */
+    
     #currently, #forecast {
       font-size: 1em;
     }
