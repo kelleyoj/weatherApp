@@ -11,4 +11,5 @@ _How To Use_
 * Bootstrap
 * Jquery
 * CSS
+* Javascript
 * HTML
