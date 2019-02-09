@@ -5,8 +5,6 @@ _How To Use_
 	5 day forecast.
 
 # What was used
-* NodeJS
-* Express
 * Openweathermap.org Api used to get weather information
 * Bootstrap
 * Jquery
